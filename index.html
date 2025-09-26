@@ -1,54 +1,61 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!doctype html>
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>دیتا ورزشی</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>داده برنامه ورزشی (JSON)</title>
 </head>
 <body>
-<script type="application/json" id="data-json">
-{
-  "users": [
-    { "username": "ali", "password": "1234", "programType": 1 },
-    { "username": "reza", "password": "5678", "programType": 2 },
-    { "username": "sara", "password": "9999", "programType": 3 }
-  ],
-  "programs": {
-    "1": {
-      "saturday":[{"exercise":"پوش آپ","count":30},{"exercise":"اسکوات","count":40}],
-      "sunday":[{"exercise":"دویدن","count":"20 دقیقه"},{"exercise":"کرانچ","count":25}],
-      "monday":[{"exercise":"پلانک","count":"1 دقیقه"},{"exercise":"لانج","count":30}],
-      "tuesday":[{"exercise":"طناب زدن","count":"10 دقیقه"},{"exercise":"اسکوات","count":25}],
-      "wednesday":[{"exercise":"بارفیکس","count":10},{"exercise":"کرانچ", "count":20}],
-      "thursday":[{"exercise":"دویدن","count":"15 دقیقه"},{"exercise":"پوش آپ", "count":20}],
-      "friday":[{"exercise":"استراحت","count":0}]
-    },
-    "2": {
-      "saturday":[{"exercise":"بارفیکس","count":10},{"exercise":"لانج","count":30}],
-      "sunday":[{"exercise":"دوچرخه ثابت","count":"15 دقیقه"},{"exercise":"پلانک","count":"1 دقیقه"}],
-      "monday":[{"exercise":"شنا سوئدی","count":20},{"exercise":"اسکوات","count":25}],
-      "tuesday":[{"exercise":"طناب زدن","count":"10 دقیقه"},{"exercise":"پوش آپ","count":20}],
-      "wednesday":[{"exercise":"دویدن","count":"20 دقیقه"},{"exercise":"کرانچ","count":30}],
-      "thursday":[{"exercise":"پلانک","count":"2 دقیقه"},{"exercise":"لانج","count":35}],
-      "friday":[{"exercise":"استراحت","count":0}]
-    },
-    "3": {
-      "saturday":[{"exercise":"طناب زدن","count":"10 دقیقه"},{"exercise":"اسکوات","count":20}],
-      "sunday":[{"exercise":"شنا سوئدی","count":20},{"exercise":"پلانک","count":"2 دقیقه"}],
-      "monday":[{"exercise":"دویدن","count":"15 دقیقه"},{"exercise":"کرانچ","count":25}],
-      "tuesday":[{"exercise":"پوش آپ","count":25},{"exercise":"لانج","count":30}],
-      "wednesday":[{"exercise":"بارفیکس","count":8},{"exercise":"اسکوات","count":20}],
-      "thursday":[{"exercise":"دوچرخه ثابت","count":"15 دقیقه"},{"exercise":"پلانک","count":"1 دقیقه"}],
-      "friday":[{"exercise":"استراحت","count":0}]
+  <!-- این اسکریپت فقط برای حمل داده به صورت JSON است. -->
+  <script id="app-data" type="application/json">
+  {
+    "users": [
+      { "username": "ali", "password": "1234", "type": "1", "avatarUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?q=80&w=400&auto=format&fit=crop" },
+      { "username": "sara", "password": "abcd", "type": "2" },
+      { "username": "reza", "password": "pass", "type": "3" }
+    ],
+    "plans": {
+      "types": {
+        "1": {
+          "name": "کاهش وزن",
+          "days": {
+            "sat": [ { "name": "دویدن", "detail": "20 دقیقه" }, { "name": "اسکوات", "detail": "3×15" }, { "name": "کرانچ شکم", "detail": "3×20" } ],
+            "sun": [ { "name": "طناب", "detail": "5×2 دقیقه" }, { "name": "شنا سوئدی", "detail": "4×12" } ],
+            "mon": [ { "name": "دوچرخه ثابت", "detail": "25 دقیقه" }, { "name": "لانج", "detail": "3×12 هر پا" } ],
+            "tue": [ { "name": "استراحت فعال", "detail": "پیاده‌روی 30 دقیقه" } ],
+            "wed": [ { "name": "HIIT", "detail": "20 دقیقه" } ],
+            "thu": [ { "name": "طناب", "detail": "5×2 دقیقه" } ],
+            "fri": [ { "name": "کشش و ریکاوری", "detail": "20 دقیقه" } ]
+          }
+        },
+        "2": {
+          "name": "افزایش عضله",
+          "days": {
+            "sat": [ { "name": "پرس سینه", "detail": "5×5" }, { "name": "قایقی", "detail": "4×10" } ],
+            "sun": [ { "name": "ددلیفت", "detail": "5×5" }, { "name": "بارفیکس", "detail": "4×8" } ],
+            "mon": [ { "name": "اسکوات", "detail": "5×5" }, { "name": "پرس سرشانه", "detail": "4×8" } ],
+            "tue": [ { "name": "استراحت" } ],
+            "wed": [ { "name": "سینه و پشت", "detail": "سوپرست" } ],
+            "thu": [ { "name": "پا", "detail": "سنگین" } ],
+            "fri": [ { "name": "استراحت" } ]
+          }
+        },
+        "3": {
+          "name": "تناسب عمومی",
+          "days": {
+            "sat": [ { "name": "پیاده‌روی تند", "detail": "30 دقیقه" } ],
+            "sun": [ { "name": "یوگا", "detail": "20 دقیقه" } ],
+            "mon": [ { "name": "شنا سوئدی", "detail": "3×10" } ],
+            "tue": [ { "name": "دوچرخه", "detail": "20 دقیقه" } ],
+            "wed": [ { "name": "اسکوات وزن بدن", "detail": "3×15" } ],
+            "thu": [ { "name": "دویدن آرام", "detail": "15 دقیقه" } ],
+            "fri": [ { "name": "کشش", "detail": "15 دقیقه" } ]
+          }
+        }
+      }
     }
   }
-}
-</script>
-
-<script>
-// این تابع JSON را return می‌کند
-function getData() {
-  return JSON.parse(document.getElementById('data-json').textContent);
-}
-</script>
+  </script>
 </body>
 </html>
+
